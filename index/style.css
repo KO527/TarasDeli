@@ -1,0 +1,635 @@
+
+
+body {
+	width: 1280px;
+	height: 100%;
+	margin: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.ShowAround {
+	position: fixed;
+	top: 0;
+	height: 40px;
+	width: 1280px; 
+	margin: 0;
+	z-index: 20;
+	background-color: #242424;
+	opacity: 0.9;
+	overflow-x: hidden;
+}
+
+#coverup {
+	position: relative;
+	top: 0;
+	background-color: black;
+	height: 40px;
+	width: 1280px;
+	z-index: 2;
+}
+
+.ShowAround li:first-child {
+	position: relative;
+	display: inline-block;
+	left: 2px;
+	top: 7px;
+	margin: 0;
+	font-size: 15px;
+	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
+}
+
+.ShowAround li {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	margin: auto 30px;
+	left: 830px;
+	top: 7px;
+	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
+	font-size: 15px;
+	text-align: center;
+	z-index: 4;
+}
+
+.ShowAround a:hover {
+	color: #ee932a;
+	text-decoration: none;
+ }
+
+.ShowAround li:after {
+	content: '';
+	display: block;
+	height: 2px;
+	width: 0;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease; /* .5 seonds for changes to the width and background-color */
+	-webkit-transition: width .5s ease, background-color .5s ease; /* Chrome and Safari */
+	-moz-transition: width .5s ease, background-color .5s ease; /* FireFox */
+}
+
+.ShowAround li:hover:after {
+	top: 10px;
+	width: 100%;
+	background: #ee932a;
+	z-index: 4;
+}
+
+.ShowAround a {
+	text-decoration: none;
+	color: #ee932a;
+	z-index: 4;
+}
+.Intropage {
+	position: relative;
+	height: 650px;
+	width: 1280px;
+	background: url('/TarasPhotos/FirstMainTaraIntro.jpg') no-repeat center center;
+	background-size: 100% 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	z-index: 8;
+}
+
+/*Intropage img {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	z-index: 8;
+}*/
+
+.Intropage h1 {
+	position: absolute;
+	font-family: 'Economica';
+	top: 100px;
+	left: 545px;
+	text-align: center;
+	font-size: 120px;
+	font-weight: 900;
+	color: #ed2511;
+	margin: 0 auto;
+	text-rendering: optimizeLegibility;
+	z-index: 9;
+} 
+
+.Intropage h1:hover {
+	color: black;
+}
+
+.Intropage p {
+ 	position: absolute;
+ 	font-family: "Economica";
+ 	text-align: center;
+ 	line-height: 1.85;
+ 	color: #3c3147;
+ 	top: 300px;
+ 	left: 480px;
+	font-size: 18px;
+	margin: 0 auto;
+	z-index: 9;
+}
+
+.Intropage p:hover {
+ 	color: #0496da;
+}
+
+.LearnMore {
+	position: relative;
+	top: 450px;
+	left: 0;
+	background-color: #c00;
+	height: 35px;
+	width: 125px;
+	display: block;
+	z-index: 15;
+	margin: 0 auto;
+}
+
+.LearnMore:hover {
+	background-color: #242424;
+}
+
+.LearnMore a {
+	color: #242424;
+	position: absolute;
+	text-align: center;
+	padding: 10px 35px 10px 35px;
+	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
+	font-size: 15px;
+	z-index: 15;
+	text-decoration: none;
+}
+
+.LearnMore a:hover {
+	color: #ee932a;
+	text-decoration: none;
+}
+
+.carousel-nav {
+	position: relative;
+	text-align: center;
+	bottom: 100px;
+	margin: 0 auto;
+	z-index: 15;
+}
+
+.carousel-control {
+	margin: 0 25px;
+	color: #bbbcbc;
+	bottom: 10%;
+	z-index: 15;
+}
+
+.Carousel-Indicators {
+	position: relative;
+	top: 0;
+	text-align: center;
+}
+.Carousel-Indicators li {
+	font-size: 30px;
+	color: #bbbcbc;
+	margin-right: 5px;
+}
+
+
+/* This is all we have for now */
+
+.carousel-Times {
+	position: relative;
+	overflow-y: hidden;
+	height: 650px;
+	width: 1280px;
+	overflow-x: hidden;
+	display: block;
+}
+
+#Carousel-Inner {	
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	top: 0;
+	left: 0;
+}
+
+.when {
+	line-height: 1.3;
+	position: relative;
+	bottom: 585px;
+	left: -500px;
+	z-index: 10;
+	text-align: left;
+	font-family: 'Jura', sans-serif;
+	font-size: 40px;
+	font-weight: 600;
+	color: black;
+}
+
+.happen { 
+    position: relative;
+    color: black;				
+    font-family: 'Jura', sans-serif;		
+    bottom: 565px;				
+    left: -500px;
+    font-size: 40px;
+    line-height: 1.3;
+    text-align: left;
+    z-index: 10;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.repeated-item {
+	position: absolute;
+	top: 0;
+}
+
+#Carousel-Inner img {
+ 	top: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	position: relative;
+ 	margin: 0;
+ 	overflow-x: hidden;
+ 	overflow-y: hidden;
+	opacity: 1;
+}
+
+/*.morningSlide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 7;
+	margin: 0;
+	display: block;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.afternoonSlide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 6;
+	display: block;
+}
+
+
+.ClosingTimes {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 5;
+	display: block;
+}*/
+
+.TheLure {
+	position: relative;
+	left: 0;
+	height: 650px;
+	width: 1280px;
+	z-index: 1;
+	overflow-y: hidden;
+}
+
+.EnjoyBreakfast {
+	position: relative;	
+	top: 0;
+	left: 0;
+	height: 650px;
+	width: 720px;
+}
+
+.EnjoyBreakfast img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 650px;
+	width: 760px;
+	display: block;
+	z-index: 7;
+}
+
+#map {
+	position: absolute;
+	top: 0;
+	left: 760px;
+	height: 650px;
+	width: 520px;
+	display: block;
+}
+
+.map-marker-label {
+	position: absolute;
+	color: blue;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.TheMenu {
+	background-image: url('http://lea.verou.me/ft2010/img/darker_wood.jpg');
+	position: relative;
+	height: 3000px;
+	width: 1280px;
+	overflow-x: hidden;
+}
+
+.MenuTemplate h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 60px;
+	color: #FFFFFF;
+	position: absolute;
+  	top: 100px;
+  	left: 140px;
+  	z-index: 5;
+}
+
+.MenuTemplate > p {
+	font-family: 'Dancing Script', cursive;
+	font-size: 24px;
+	color: #FFFFFF;
+	position: absolute;
+	top: 230px;
+	left: 190px;
+	z-index: 5;
+}
+
+.BreakfastList {
+	position: relative;
+	top: 280px;
+	left: 210px;
+}
+
+.BreakfastList p {
+	position: relative;
+	font-size: 12px;
+	color: #FFFFFF;
+	top: 10px;
+}
+
+.BreakfastList p:nth-child(1) ~ p:nth-child(-n+6){
+	position: relative;
+	left: 25px;
+}
+
+.BreakfastList img {
+	position: relative;
+	height: 300px;
+	width: 450px;
+	bottom: 350px;
+	left: 350px;
+}
+.Extras {
+	position: relative;
+	margin-bottom: 10px ;
+}
+
+.Extras span {
+	color: #FFFFFF;
+	position: relative;
+	font-size: 12px;
+	left: 75px;
+	top: 10px;
+	display: block;
+	line-height: 30px;
+}
+
+
+.BreakfastList p:nth-child(7){
+	position: relative;
+	left: 50px;
+}
+ 
+.BagelOpts span {
+	color: #FFFFFF;
+	position: relative;
+	display: block;
+	top: 10px;
+	font-size: 12px;
+	left: 25px;
+	margin-top: 10px;
+}
+
+.GrillList {
+	position: absolute;
+	top: 770px;
+	left: 740px;
+}
+
+.GrillList p {
+	font-size: 12px;
+	color: #FFFFFF;
+	position: relative;
+	top: 10px;
+}
+
+.GrillCknOpts {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.GrillCknOpts span {
+	position: relative;
+	color: #FFFFFF;
+	top: 10px;
+	left: 25px;
+	font-size: 12px;
+	line-height: 30px;
+	display: block;
+}
+
+.FromTheGrill > p {
+	font-family: 'Dancing Script', cursive;
+	font-size: 24px;
+	color: #FFFFFF;
+	position: absolute;
+	top: 730px;
+	left: 700px;
+	z-index: 5;
+}
+.FromTheGrill img:nth-of-type(1) {
+	position: relative;
+	top: 100px;
+	left: 150px;
+	height: 300px;
+	width: 450px;
+}
+.FromTheGrill img:nth-of-type(2){
+	position: relative;
+	top: 600px;
+	right: 300px;
+	height: 300px;
+	width: 450px;
+}
+
+.ColdSandwiches {
+	position: relative;
+	top: 1400px;
+	margin: 0 auto;
+}
+
+.ChickenFingers {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.FrenchFryOpt {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.PotatoFryOpt {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.OnionRingsOpts {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.CurlyRingOpts {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.ChickenFingers span {
+	position: relative;
+	color: #FFFFFF;
+	top: 10px;
+	left: 25px;
+	font-size: 12px;
+	line-height: 30px;
+	display: block;
+}
+
+.FrenchFryOpt span {
+	position: relative;
+	color: #FFFFFF;
+	top: 10px;
+	left: 25px;
+	font-size: 12px;
+	line-height: 30px;
+	display: block;	
+}
+
+.PotatoFryOpt span {
+	position: relative;
+	color: #FFFFFF;
+	top: 10px;
+	left: 25px;
+	font-size: 12px;
+	line-height: 30px;
+	display: block;
+}
+
+.OnionRingsOpts span {
+	position: relative;
+	color: #FFFFFF;
+	top: 10px;
+	left: 25px;
+	font-size: 12px;
+	line-height: 30px;
+	display: block;
+}
+
+.CurlyRingOpts span {
+	position: relative;
+	color: #FFFFFF;
+	top: 10px;
+	left: 25px;
+	font-size: 12px;
+	line-height: 30px;
+	display: block;
+}
+
+.Sandwiches-Wraps {
+	position: absolute;
+	width: 220px;
+	top: 1750px;
+	left: 230px;
+}
+.Sandwiches-Wraps p:nth-of-type(1){
+	font-size: 24px;
+	font-family: 'Dancing Script', Cursive;
+}
+
+.Sandwiches-Wraps p {
+	color: #FFFFFF;
+	position: relative;
+	top: 10px;
+	font-size: 12px;
+ }
+
+.Sandwiches-Wraps p:nth-child(1) ~ p {
+	position: relative;
+	top: 40px;
+	left: 40px;
+}
+
+.Sandwiches-Wraps p:nth-child(1) ~ p:nth-child(even){
+	position: relative;
+	left: 25px;
+}
+
+.Sandwiches-Wraps img {
+	position: relative;
+	bottom: 400px;
+	left: 350px;
+	height: 400px;
+	width: 600px;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 85%;
+}
+
+th, td {
+  padding: 6px 15px;
+  color: #FFFFFF;
+}
+
+th {
+  background: #FFFFFF;
+  color: #000000;
+  text-align: left;
+}
+
+tr > td:nth-child(2){
+	padding-right: 40px;
+}
+
+tr:first-child th:first-child {
+  border-top-left-radius: 6px;
+}
+
+tr:first-child th:last-child {
+  border-top-right-radius: 6px;
+}
+
+td {
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+td:first-child {
+  border-left: 1px solid #FFFFFF;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+

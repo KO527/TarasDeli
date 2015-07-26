@@ -1,0 +1,144 @@
+
+body {
+	width: 1280px;
+	height: 100%;
+	margin: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.ContactBody {
+	width: 100%;
+	position: relative;
+	top: 0;
+	overflow-x: hidden;
+}
+.ShowAround {
+	position: fixed;
+	top: 0;
+	height: 40px;
+	width: 100%; 
+	margin: 0;
+	z-index: 20;
+	background-color: #242424;
+	opacity: 0.9;
+	overflow-x: hidden;
+}
+
+.ShowAround li:first-child {
+	position: relative;
+	display: inline-block;
+	left: 2px;
+	top: 7px;
+	margin: 0;
+	font-size: 15px;
+	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
+}
+
+.ShowAround li {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	margin: auto 30px;
+	left: 810px;
+	top: 7px;
+	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
+	font-size: 15px;
+	text-align: center;
+	z-index: 4;
+}
+.ShowAround a:hover {
+	color: #ee932a;
+	text-decoration: none;
+ }
+
+.ShowAround li:after {
+	content: '';
+	display: block;
+	height: 2px;
+	width: 0;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease; /* .5 seonds for changes to the width and background-color */
+	-webkit-transition: width .5s ease, background-color .5s ease; /* Chrome and Safari */
+	-moz-transition: width .5s ease, background-color .5s ease; /* FireFox */
+}
+
+.ShowAround li:hover:after {
+	top: 10px;
+	width: 100%;
+	background: #ee932a;
+	z-index: 4;
+}
+
+.ShowAround a {
+	text-decoration: none;
+	color: #ee932a;
+	z-index: 4;
+}
+
+.contact {
+	height: 650px;
+	width: 100%;
+	position: relative;
+	background-color: black;
+	z-index: 5;
+	overflow-x: hidden;
+} 
+.contact p {
+	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
+	text-align: center;
+	font-size: 40px;
+	color: #ee932a;
+	line-height: 50px;
+	position: relative;
+	top: 150px;
+	margin: 0 auto;
+	z-index: 10;
+}
+#CustomerService {
+	/*height: 650px;*/
+	min-height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+	background-image: url('/TarasPhotos/GreatCustomerService.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+	z-index: 1;
+}
+
+#Bio {
+	overflow-x: hidden;
+	position: relative;
+	min-height: 100%;
+	width: 100%;
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+	background-color: black;
+	z-index: 5;
+}
+
+
+#Bio p {
+	color: #ee932a;
+	text-align: center;
+	font-size: 40px;
+	top: 325px;
+	width: 850px;
+	position: relative;
+	margin: 0 auto;
+	line-height: 50px;
+	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
+	z-index: 10;
+}
+
+.Traffic {
+	min-height: 100%;
+	width: 100%;
+	background-image: url('/TarasPhotos/ShopTraffic.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	overflow-x: hidden;
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+	position: relative;
+	z-index: 1;
+}

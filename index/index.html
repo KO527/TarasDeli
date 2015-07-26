@@ -1,0 +1,345 @@
+<html>
+
+<head>
+  <link rel = "stylesheet" href = "./style.css">
+  <link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+  <link href='../node_modules/bootstrap/dist/css/bootstrap.min.css' rel = 'stylesheet'/>
+</head>
+  <body ng-app = "TarasDeli">
+   <div id= "coverup"></div>
+    <header class = "ShowAround">
+      <nav>
+      <ul>
+        <li><a href = '#coverup'>Tara's Deli</a></li>
+        <li><a href = '#Menus'>Our Menu</a></li>
+        <li><a href = '/Contact/Contact.html'>Contact</a></li>
+        <li><a href = '#Carousel-Times'>OperationHours</a></li>
+      </ul>
+      </nav>
+    </header>
+  <div id = 'intropage' class = 'Intropage'>      
+      <h1>Tara's</h1>
+      <p>Tara's Deli is dedicated to the chefs who put their soul and <br>energy into making the most fulfilling sandwiches and <br>subs.</p>
+      <div class = "LearnMore"><a href = '/Contact/Contact.html#Bio'>Learn More</a></div>
+  </div>
+  <div id = 'Carousel-Times' class = 'carousel-Times'>
+    <div id = 'Carousel-Inner' ng-switch = 'mainDiv.id' ng-controller = 'FadeInOut'>
+      <div class = 'repeated-item' ng-switch-when = '1'>
+        <img ng-src = "{{ mainDiv.image }}" />
+        <span ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
+        <p ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
+      </div>
+      <div class = 'repeated-item' ng-switch-when = '2'>
+        <img ng-src = "{{ mainDiv.image }}" /> 
+        <span style = 'color:white;' ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
+        <p style = 'color:white;' ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
+      </div>
+      <div class = 'repeated-item' ng-switch-when = '3'>
+        <img ng-src = "{{ mainDiv.image }}" /> 
+        <span ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
+        <p ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
+      </div>
+    </div>
+  </div>
+  <div class = 'TheLure'>
+    <div class = 'EnjoyBreakfast'>
+      <img src = "/TarasPhotos/NewBreakFastSpotMeme.png">
+    </div>
+    <div id = "map"></div>
+  </div>
+  <div id = 'Menus' class = 'TheMenu'>
+    <div class = "MenuTemplate">
+      <h1>Menu</h1>
+      <p>Breakfast</p>
+        <ul class = "BreakfastList">
+          <p>Eggs On a Roll<span>...............$2.29</span></p>
+          <p>with Taylor Ham<span>..............$3.99</span></p>
+          <p>with Bacon<span>.................$3.99</span></p>
+          <p>with Pork or Turkey Sausage<span>.................$3.99</span></p>
+          <p>with Ham<span>..............$4.99</span></p>
+          <p>with Peppers<span>............$4.29</span></p>
+          <p>Extras:</p>
+          <div class = 'Extras'>
+            <span>Add Cheese...........30&cent;</span> 
+            <span>On a Bagel...........30&cent;</span>
+          </div>
+          <p>Taylor Ham & Cheese On a Roll<span>..............$3.29</span></p>
+          <p>3 Egg Omelette<span>.........$6.29</span></p>
+          <p>Buttered Roll<span>..........$1.00</span></p>
+          <p>Bagel<span>..............$1.00</span></p>
+          <div class = 'BagelOpts'>
+            <span>with Butter...............$1.70</span>
+            <span>with Cream Cheese.........$2.50</span>
+            <span>with Butter...............$2.00</span>
+            <img src = '/TarasPhotos/BreakfastRoll.jpg'>
+          </div>
+        </ul>
+    <div class = 'FromTheGrill'>
+      <p>From the Grill</p>
+        <ul class = "GrillList">
+          <p>Hamburger<span>...............$5.49</span></p>
+          <p>Cheeseburger<span>............$5.79</span></p>
+          <p>Italian Hot Dog<span>.........$5.49</span></p>
+          <p>Grilled Chicken<span>.........Roll $6.59</span></p>
+                <div class = 'GrillCknOpts'>
+                  <span>Sub................$7.19</span>
+                  <span>w/ Cheese.....Roll $6.89</span>
+                  <span>w/ Cheese.....Sub $7.69</span>
+                </div>
+          <p>Meatball Parmigiana<span>..........$7.19</span></p>
+          <p>Chicken Parmigiana<span>...........$7.19</span></p>
+          <p>CheeseSteak<span>.......................$7.19</span></p>
+          <p>Chicken Cheesesteak<span>..........$6.49</span></p>
+          <p>Fried Fish<span>...................Sub $7.19</span></p>
+          <p>Reuben<span>.......................$7.59</span></p>
+          <p>Pastrami or Corned Beef</span>................$7.59</span></p>
+          <p>BLT</span>.........................$4.29</span></p>
+          <p>Tuna Melt</span>...................$6.99</span></p>
+          <p>Grilled Cheese</span>..............$4.29</span></p>
+          <p><span>with Ham or Bacon............$5.29</span></p>
+          <p>Chicken Fingers</p>
+                <div class = 'ChickenFingers'>
+                  <span>3pcs w/ curly fries.........$4.29</span>
+                  <span>3pcs w/ French fries........$3.99</span>
+                  <span>5pcs........................$4.99</span>
+                </div>
+          <p>Chicken Wings <em> 8pcs</em><span>.................$4.99</span></p>
+          <p>Mozzarella sticks<span>................$4.29</span></p>
+          <p>French Fries</p>
+                <div class = 'FrenchFryOpt'>
+                  <span>Small.......................$2.50</span>
+                  <span>Large.......................$4.95</span>
+                </div>
+          <p>Sweet Potato Fries</p>
+                <div class = 'PotatoFryOpt'>
+                  <span>Small.......................$2.98</span>
+                  <span>Large.......................$5.99</span>
+                </div>
+          <p>Onion Rings</p>
+                <div class = 'OnionRingsOpts'>
+                  <span>Small.......................$2.99</span>
+                  <span>Large.......................$5.99</span>
+                </div>
+          <p>Curly Rings</p>
+                <div class = 'CurlyRingOpts'>
+                  <span>Small.......................$2.99</span>
+                  <span>Large.......................$5.99</span>
+                </div>
+        </ul>
+        <img src = '/TarasPhotos/TheGrill.jpg'>
+        <img src = '/TarasPhotos/EggCheeseGrill.jpg'>
+    </div>
+
+    <div class = 'Sandwiches-Wraps'>
+           <p>Sandwiches & Wraps</p>
+           <p>Grilled Chicken & Caesar<span>.............$7.89</span></p>
+           <p><em>Grilled Chicken, Romaine Lettuce, Pepper, & Creamy Caesar Dressing</em></p>
+           <p>Chicken Ranch<span>........................$7.89</span></p>
+           <p><em>Chicken (Grilled or Breaded), Bacon, Lettuce, Tomato, & Ranch Dressing</em></p>
+           <p>Chicken Pesto<span>........................$7.89</span></p>
+           <p><em>Chicken (Grilled or Breaded), Fresh Mozzarella, Sundried Tomatoes, Romaine Lettuce, & Pesto</em></p>
+           <p>Mediterranean Chicken<span>....................$7.89</span></p>
+           <p><em>Chicken (Grilled or Breaded), Fresh Mozzarella, Roasted Peppers, Olive Oil & Balsamic Vinegar</em></p>
+           <p>Club Sandwich</span>.......................$8.99</span></p>
+           <p><em>Ovengold, Turkey or Tuna, Bacon, Lettuce, Tomato & Mayo on a Toast</em></p>
+           <p>Sloppy Joe<span>...........................$8.99</span></p>
+           <p><em>Choice of two: Deluxe Roast Beef, Ovengold, Turkey or Deluxe
+                Ham w/ Swiss Cheese, Cole Slaw & Russian Dressing on 3 layers of Rye Bread</em></p>
+           <img src = '/TarasPhotos/MediterraneanSubs.jpg'>
+    </div>
+
+    <table class = "ColdSandwiches">
+      <thead>
+        <tr>
+          <th>Cold Sandwiches</th>
+          <th></th>
+          <th>Roll/Bread</th>
+          <th>Half Sub</th>
+          <th>Sub</th>
+        </tr> 
+      </thead>
+      <tbody>
+          <tr>
+            <td>#1</td>
+            <td>Spiced Ham</td>
+            <td>$5.59</td>
+            <td>$6.09</td>
+            <td>$10.99</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Spiced Ham & Cheese</td>
+            <td>$5.79</td>
+            <td>$6.59</td>
+            <td>$11.49</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Spiced Ham, Salami, & Cheese</td>
+            <td>$6.29</td>
+            <td>$6.79</td>
+            <td>$11.49</td>
+          </tr>
+          <tr>
+            <td>#2</td>
+            <td>Bologna & Cheese</td>
+            <td>$6.19</td>
+            <td>$6.79</td>
+            <td>$11.49</td>
+          </tr>
+          <tr>
+            <td>#3</td>
+            <td>Deluxe Ham, Salami & Cheese</td>
+            <td>$6.29</td>
+            <td>$6.79</td>
+            <td>$11.49</td>
+          </tr>
+          <tr>
+            <td>#4</td>
+            <td>Deluxe Ham & Cheese</td>
+            <td>$6.29</td>
+            <td>$6.79</td>
+            <td>$11.49</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Deluxe Ham</td>
+            <td>$5.99</td>
+            <td>$6.29</td>
+            <td>$10.99</td>
+          </tr>
+          <tr>
+            <td>#5</td>
+            <td>Tuna</td>
+            <td>$6.59</td>
+            <td>$7.29</td>
+            <td>$12.89</td>
+          </tr>
+          <tr>
+            <td>#6</td>
+            <td>Deluxe Roast Beef</td>
+            <td>$6.59</td>
+            <td>$7.29</td>
+            <td>$12.89</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Deluxe Roast Beef & Cheese</td>
+            <td>$6.89</td>
+            <td>$7.79</td>
+            <td>$13.89</td>
+          </tr>
+          <tr>
+            <td>#7</td>
+            <td>Ovengold, Turkey</td>
+            <td>$6.49</td>
+            <td>$6.79</td>
+            <td>$11.49</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Ovengold, Turkey & Cheese</td>
+            <td>$6.79</td>
+            <td>$7.29</td>
+            <td>$12.49</td>
+          </tr>
+          <tr>
+            <td>#8</td>
+            <td>Cheese Combo</td>
+            <td>$5.29</td>
+            <td>$6.79</td>
+            <td>$11.49</td>        
+          </tr>
+          <tr>
+            <td>#9</td>
+            <td>Prosciutto & Cheese</td>
+            <td></td>
+            <td>$8.29</td>
+            <td>$14.09</td>
+          </tr>
+          <tr>
+            <td>#10</td>
+            <td>Ovengold, Turkey, Deluxe Ham, & Cheese</td>
+            <td>$6.59</td>
+            <td>$7.09</td>
+            <td>$11.89</td>
+          </tr>
+          <tr>
+            <td>#11</td>
+            <td>Fresh Mozzarella & Roasted Peppers</td>
+            <td></td>
+            <td>$6.79</td>
+            <td>$11.49</td>
+          </tr>
+          <tr>
+            <td>#12</td>
+            <td>Maple Honey Turkey & Cheese</td>
+            <td>$7.09</td>
+            <td>$7.79</td>
+            <td>$13.49</td>
+          </tr>
+          <tr>
+            <td>#13</td>
+            <td>Italian <em>Spiced Ham, Salami, Pepperoni, Capacollo & Provolone</em></td>
+            <td></td>
+            <td>$7.19</td>
+            <td>$11.89</td>
+          </tr>
+          <tr>
+            <td>#14</td>
+            <td>Chicken Salad</td>
+            <td>$6.59</td>
+            <td>$7.29</td>
+            <td>$12.89</td>
+          </tr>
+          <tr>
+            <td>#15</td>
+            <td>Egg Salad</td>
+            <td>$5.59</td>
+            <td>$6.29</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>#16</td>
+            <td>Corned Beef</td>
+            <td>$6.59</td>
+            <td>$7.29</td>
+            <td>$12.89</td>
+          </tr>
+          <tr>
+            <td>#17</td>
+            <td>Pastrami</td>
+            <td>$6.59</td>
+            <td>$7.29</td>
+            <td>$12.89</td>
+          </tr>
+          <tr>
+            <td>#18</td>
+            <td>Liverwurst</td>
+            <td>$5.89</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>#19</td>
+            <td>Genoa Salami</td>
+            <td>$5.89</td>
+            <td></td>
+            <td></td>
+          </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+<!--  <script src = './Deli.js'></script>-->
+  <script src = "http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src = './jquery-scrollTo.js'></script>
+  <script src = '../node_modules/angular/angular.min.js'></script>
+  <script src = "../node_modules/angular-animate/angular-animate.js"></script>
+  <script src = './app.js'></script>
+  <script src = './MappingSys.js'></script>
+  <script src = '../node_modules/angular-route/angular-route.js'></script>
+  </body>
+</html>
