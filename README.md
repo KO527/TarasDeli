@@ -1,2 +1,2 @@
 # TarasDeli
-https://www.tarasdeli.com
+www.tarasdeli.com
