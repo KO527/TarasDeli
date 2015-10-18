@@ -1,2 +1,0 @@
-# TarasDeli
-www.tarasdeli.com
