@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <link rel = "stylesheet" href = "./style.css">
   <link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'>
@@ -7,14 +6,14 @@
   <link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
   <link href='../node_modules/bootstrap/dist/css/bootstrap.min.css' rel = 'stylesheet'/>
 </head>
-  <body ng-app = "TarasDeli">
-   <div id= "coverup"></div>
-    <header class = "ShowAround">
+  <body ng-app = "TarasDeli">                                 <!--Try optimizing the speed of the images on the page so -->                                       
+   <div id= "coverup"></div>                                   <!--that the pages will load faster; Take a look at Google Chrome's Tutorial-->
+    <header class = "ShowAround">                            
       <nav>
       <ul>
         <li><a href = '#coverup'>Tara's Deli</a></li>
         <li><a href = '#Menus'>Our Menu</a></li>
-        <li><a href = '/Contact/Contact.html'>Contact</a></li>
+        <li><a href = '/Contact/Contact.html#contact'>Contact</a></li>
         <li><a href = '#Carousel-Times'>OperationHours</a></li>
       </ul>
       </nav>
@@ -24,6 +23,7 @@
       <p>Tara's Deli is dedicated to the chefs who put their soul and <br>energy into making the most fulfilling sandwiches and <br>subs.</p>
       <div class = "LearnMore"><a href = '/Contact/Contact.html#Bio'>Learn More</a></div>
   </div>
+  <!-- Change the text shadow for the words that come from the angular configuration.-->
   <div id = 'Carousel-Times' class = 'carousel-Times'>
     <div id = 'Carousel-Inner' ng-switch = 'mainDiv.id' ng-controller = 'FadeInOut'>
       <div class = 'repeated-item' ng-switch-when = '1'>
@@ -47,6 +47,7 @@
     <div class = 'EnjoyBreakfast'>
       <img src = "/TarasPhotos/NewBreakFastSpotMeme.png">
     </div>
+    <!--Add second mapping icon on map signifying the presence of the trains station.-->
     <div id = "map"></div>
   </div>
   <div id = 'Menus' class = 'TheMenu'>
@@ -131,7 +132,6 @@
         <img src = '/TarasPhotos/TheGrill.jpg'>
         <img src = '/TarasPhotos/EggCheeseGrill.jpg'>
     </div>
-
     <div class = 'Sandwiches-Wraps'>
            <p>Sandwiches & Wraps</p>
            <p>Grilled Chicken & Caesar<span>.............$7.89</span></p>
