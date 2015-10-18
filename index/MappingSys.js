@@ -1,8 +1,6 @@
 
-
-var ContentString = 'Tara&#39s Deli\n' + '530 Valley Street';
-
 function init(){
+	
 	var mapOptions = {
 		center: new google.maps.LatLng(40.732755, -74.270386),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -18,6 +16,8 @@ function init(){
 		animation: google.maps.Animation.DROP,
 		map: venueMap
 	});
+	var ContentString = 'Tara&#39s Deli\n' + '530 Valley Street';
+
 	var infowindow = new google.maps.InfoWindow({
 		content: ContentString,
 		disableAutoPan: true
@@ -63,7 +63,8 @@ function init(){
 	
 
 	function ZoomControl(){
-		if (($(document).scrollTop() > 1240 || $(document).scrollTop < 1340) && ($(document).scrollTop() < 1740 || $(document).scrollTop() > 1840)){
+		var doc = document;
+		if (($(doc).scrollTop() > 1240 || $(doc).scrollTop < 1340) && ($(doc).scrollTop() < 1740 || $(doc).scrollTop() > 1840)){
 			if (!zoomedIn){
 				smoothZoom(venueMap, 17, venueMap.getZoom(), true);
 				zoomedIn = true;
@@ -82,9 +83,10 @@ function init(){
 
 
 function loadScript(){
-	var script = document.createElement('script');
+	var doc = document;
+	var script = doc.createElement('script');
 	script.src = 'http://maps.googleapis.com/maps/api/js?sensor=false&callback=init';
-	document.body.appendChild(script);
+	doc.body.appendChild(script);
 }
 
 
