@@ -4,7 +4,7 @@
   "description": "A Website for a business on Valley Street showcasing a menu, hours of operation, contact info and About Me info.",
   "main": "./Js/server.js",
   "scripts": {
-    "start": "node ./Js/server.js",
+    "start": "node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
