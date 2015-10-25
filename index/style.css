@@ -1,4 +1,4 @@
-body {
+ body {
 	width: 1280px;
 	height: 100%;
 	margin: 0;
@@ -88,13 +88,6 @@ body {
 	overflow-y: hidden;
 	z-index: 8;
 }
-
-/*Intropage img {
-	position: relative;
-	height: 100%;
-	width: 100%;
-	z-index: 8;
-}*/
 
 .Intropage h1 {
 	position: absolute;
@@ -244,6 +237,11 @@ body {
 	top: 0;
 }
 
+.repeated-item span,
+.repeated-item p {
+	text-shadow: ;
+}
+
 #Carousel-Inner img {
  	top: 0;
  	width: 100%;
@@ -254,40 +252,6 @@ body {
  	overflow-y: hidden;
 	opacity: 1;
 }
-
-/*.morningSlide {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 7;
-	margin: 0;
-	display: block;
-	overflow-x: hidden;
-	overflow-y: hidden;
-}
-
-.afternoonSlide {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 6;
-	display: block;
-}
-
-
-.ClosingTimes {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 5;
-	display: block;
-}*/
 
 .TheLure {
 	position: relative;
@@ -302,18 +266,9 @@ body {
 	position: relative;	
 	top: 0;
 	left: 0;
-	height: 650px;
-	width: 720px;
-}
-
-.EnjoyBreakfast img {
-	position: absolute;
-	top: 0;
-	left: 0;
+	background: url('/TarasPhotos/NewBreakFastSpotMeme.png') 0 0/760px 650px no-repeat;
 	height: 650px;
 	width: 760px;
-	display: block;
-	z-index: 7;
 }
 
 #map {
@@ -339,7 +294,13 @@ body {
 	width: 1280px;
 	overflow-x: hidden;
 }
-
+.MenuTemplate {
+	position: relative;
+	height: 3000px;
+	width: 1280px;
+	background: url('/TarasPhotos/TheGrill.jpg') 150px 850px/450px 300px no-repeat, url('/TarasPhotos/EggCheeseGrill.jpg') 150px 1350px/450px 300px no-repeat, 
+	url('/TarasPhotos/MediterraneanSubs.jpg')  550px 1950px/600px 400px no-repeat, url('/TarasPhotos/BreakfastRoll.jpg') 580px 320px/450px 300px no-repeat;
+}
 .MenuTemplate h1 {
 	font-family: 'Dancing Script', cursive;
 	font-size: 60px;
@@ -378,16 +339,9 @@ body {
 	left: 25px;
 }
 
-.BreakfastList img {
-	position: relative;
-	height: 300px;
-	width: 450px;
-	bottom: 350px;
-	left: 350px;
-}
 .Extras {
 	position: relative;
-	margin-bottom: 10px ;
+	margin-bottom: 10px;
 }
 
 .Extras span {
@@ -453,7 +407,7 @@ body {
 	left: 700px;
 	z-index: 5;
 }
-.FromTheGrill img:nth-of-type(1) {
+/*.FromTheGrill img:nth-of-type(1) {
 	position: relative;
 	top: 100px;
 	left: 150px;
@@ -466,11 +420,11 @@ body {
 	right: 300px;
 	height: 300px;
 	width: 450px;
-}
+}*/
 
 .ColdSandwiches {
 	position: relative;
-	top: 1400px;
+	top: 2000px;
 	margin: 0 auto;
 }
 
