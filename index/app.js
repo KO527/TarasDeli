@@ -57,6 +57,10 @@ $scope.mainDiv = array[index];
 
 index++;
 
+if ((index - 1)==1)
+  $timeout(function(){},10000);
+else
+  continue;
 }, 7000);
 
 
