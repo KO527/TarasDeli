@@ -57,10 +57,6 @@ $scope.mainDiv = array[index];
 
 index++;
 
-if ((index - 1)==1)
-  $timeout(function(){},10000);
-else
-  continue;
 }, 7000);
 
 
@@ -84,10 +80,10 @@ return {
 		img.animate({
 			opacity: 1
 		}, 2000, function(){
-			$timeout(function(){clock.animate({left: '35px', opacity: 1}, 1000);}, 1000);
-			$timeout(function(){haps.animate({left: '35px', opacity: 1}, 1000);}, 1000);
-			$timeout(function(){clock.animate({left: '-500px', opacity: 0}, 1000);}, 5000);
-			$timeout(function(){haps.animate({left: '-500px', opacity: 0}, 1000);}, 5000);
+				$timeout(function(){clock.animate({left: '35px', opacity: 1}, 1000);}, 1000);
+				$timeout(function(){haps.animate({left: '35px', opacity: 1}, 1000);}, 1000);
+				$timeout(function(){clock.animate({left: '-500px', opacity: 0}, 1000);}, 5000);
+				$timeout(function(){haps.animate({left: '-500px', opacity: 0}, 1000);}, 5000);
 		}());
 	
 	},
