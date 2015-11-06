@@ -1,36 +1,84 @@
-
+ var AreasOfInterest =[[ 40.732755, -74.270386], [ 40.730535, -74.276163]];
+ var markers = [];
+ var i;
 function init(){
-	
+		
 	var mapOptions = {
-		center: new google.maps.LatLng(40.732755, -74.270386),
+		center: new google.maps.LatLng(AreasOfInterest[0][0], AreasOfInterest[0][1]),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		draggable: false,
-		scrollwheel: false,
 		zoom: 13
 	};
 
 	var venueMap = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-	var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(40.732755, -74.270386),
-		animation: google.maps.Animation.DROP,
-		map: venueMap
-	});
+
 	var ContentString = 'Tara&#39s Deli\n' + '530 Valley Street';
 
 	var infowindow = new google.maps.InfoWindow({
 		content: ContentString,
 		disableAutoPan: true
 	});
-	function toggleBounce(){
-		if (marker.getAnimation() !== null){
-			marker.setAnimation(null);
+
+	var TrainInfo = 'Maplewood Train Station';
+
+	var Trainwindow = new google.maps.InfoWindow({
+		content: TrainInfo,
+		disableAutoPan: true
+	});
+
+	var windows = [infowindow, Trainwindow];
+
+	function addMarker(position){
+			markers.push(new google.maps.Marker({
+				position: new google.maps.LatLng(position), //possible error
+				animation: google.maps.Animation.DROP,
+				map: venueMap
+			}));
+	}
+	// if venueMap.data.contains(markers[0]);
+	
+	function dropandPan(){
+		clearMarkers();
+		console.log("hey chode");
+		for (i = 0; i < AreasOfInterest.length; i++){
+			if (venueMap.data.contains(markers[i])){
+				// console.log("hey Chode");
+				venueMap.panTo(AreasOfInterest[i][0], AreasOfInterest[i][1]);
+				windows[i].open(venueMap, markers[i]);
+				setTimeout(windows[i].close(venueMap, markers[i]), 3000);
+			}
+			else{
+				addMarker(AreasOfInterest[i][0], AreasOfInterest[i][1]);
+				venueMap.panTo(AreasOfInterest[i][0], AreasOfInterest[i][1]);
+				windows[i].open(venueMap, markers[i]);
+				console.log("I hate you");
+				setTimeout(windows[i].close(venueMap, markers[i]), 3000);
+			}
 		}
-		else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
+		if (i == 1){
+			setTimeout(dropandPan(), 3500);
 		}
 	}
 
+	var clearMarkers = function(){
+		for(i = 0; i < markers.length; i++){
+			markers[i].setMap(null);
+		}
+		markers = [];
+	};
+
+	// var marker = new google.maps.Marker({
+	// 	position: TarasLatLng,
+	// 	animation: google.maps.Animation.DROP,
+	// 	map: venueMap
+	// });
+
+	// var TrainStationMarker = new google.maps.Marker({
+	// 	position: AreasOfInterest[1],
+	// 	animation: google.maps.Animation.DROP,
+	// 	map: venueMap
+	// });
+	
 	//Model View Controller State Change https://developers.google.com/maps/documentation/javascript/events
 	var zoomedIn = false;
 
@@ -63,15 +111,17 @@ function init(){
 	
 
 	function ZoomControl(){
+
+	
 		var doc = document;
 		if (($(doc).scrollTop() > 1240 || $(doc).scrollTop < 1340) && ($(doc).scrollTop() < 1740 || $(doc).scrollTop() > 1840)){
 			if (!zoomedIn){
-				smoothZoom(venueMap, 17, venueMap.getZoom(), true);
+				smoothZoom(venueMap, 18, venueMap.getZoom(), true);
 				zoomedIn = true;
+				dropandPan();
 			}
-			infowindow.open(venueMap, marker);
 		}
-		else {
+		else{
 			infowindow.close();
 			smoothZoom(venueMap, 8, venueMap.getZoom(), false);
 			zoomedIn = false;
@@ -79,7 +129,7 @@ function init(){
 	}
 
 	document.addEventListener('scroll', ZoomControl, false);
-}
+	}
 
 
 function loadScript(){
