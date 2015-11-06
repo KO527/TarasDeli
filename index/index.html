@@ -23,30 +23,28 @@
       <p>Tara's Deli is dedicated to the chefs who put their soul and <br>energy into making the most fulfilling sandwiches and <br>subs.</p>
       <div class = "LearnMore"><a href = '/Contact/Contact.html#Bio'>Learn More</a></div>
   </div>
-  <!-- Change the text shadow for the words that come from the angular configuration.-->
   <div id = 'Carousel-Times' class = 'carousel-Times'>
     <div id = 'Carousel-Inner' ng-switch = 'mainDiv.id' ng-controller = 'FadeInOut'>
       <div class = 'repeated-item' ng-switch-when = '1'>
         <img ng-src = "{{ mainDiv.image }}" />
-        <span style = 'color:white' ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
-        <p style = 'color:white' ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
+        <span ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
+        <p ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
       </div>
       <div class = 'repeated-item' ng-switch-when = '2'>
         <img ng-src = "{{ mainDiv.image }}" /> 
-        <span style = 'color:white;' ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
-        <p style = 'color:white;' ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
+        <span ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
+        <p ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
       </div>
       <div class = 'repeated-item' ng-switch-when = '3'>
         <img ng-src = "{{ mainDiv.image }}" /> 
-        <span style = 'color:white' ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
-        <p style = 'color:white' ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
+        <span ng-bind-html = 'renderHtml(mainDiv.time)' class = 'when'></span>
+        <p ng-bind-html = 'renderHtml(mainDiv.Happenstance)' class = 'happen'></p>
       </div>
     </div>
   </div>
   <div class = 'TheLure'>
     <div class = 'EnjoyBreakfast'>
     </div>
-    <!--Add second mapping icon on map signifying the presence of the trains station.-->
     <div id = "map"></div>
   </div>
   <div id = 'Menus' class = 'TheMenu'>
