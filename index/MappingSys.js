@@ -1,3 +1,5 @@
+ // var Promise = require('promise');
+
  var AreasOfInterest =[{lat: 40.732755, lng: -74.270386}, {lat:40.730535, lng:-74.276163}];
  var markers = [];
  var windows = [];
@@ -46,7 +48,7 @@ function init(){
 	function dropandPan(){
 		clearMarkers();
 
-		for (i = 0; i <= AreasOfInterest.length; i++){
+		for (i = 0; i < AreasOfInterest.length; i++){
 			if (venueMap.data.contains(markers[i])){
 				console.log("nextStep");
 				venueMap.panTo(AreasOfInterest[i].lat, AreasOfInterest[i].lng); // √
@@ -54,19 +56,26 @@ function init(){
 				console.log("hey Chode");
 				setTimeout(windows[i].close(venueMap, markers[i]), 3000);
 			}
-			else if (i == 2){
-				console.log("Rerun!!");
-				setTimeout(closeWindows(), 3000);
-				console.log("closed");
-			}
-			else{
-				setTimeout(addMarker(AreasOfInterest[i]), 4000); // √
+			// else if (i == 2){
+			// 	console.log("Rerun!!");
+			// 	setTimeout(closeWindows(), 3000);
+			// 	console.log("closed");
+			// }
+			else if (i == 1){
+				setTimeout(addMarker(AreasOfInterest[i]), 5000); // √
 				newWindow(Contents[i]);
 				console.log("made");
 				setTimeout(venueMap.panTo(AreasOfInterest[i]), 3500); // √
 				console.log("PanOver");
 				windows[i].open(venueMap, markers[i]);
-				console.log("Newwindow");
+				console.log("NewWindow");
+			}
+			else{
+				addMarker(AreasOfInterest[i]); // √
+				newWindow(Contents[i]);
+				console.log("made");
+				windows[i].open(venueMap, markers[i]);
+				console.log("NewWindow");
 			}
 		}
 	}
@@ -107,16 +116,21 @@ function init(){
 		}
 	}
 	
-
+	//Figure this shit out ---> do not understand what is wrong
+	function ActivateMap(){new Promise(function(fulfill, reject){
+		smoothZoom(venueMap, 18, venueMap.getZoom(), true).done(function(){setTimeout(dropandPan(), 3500);});
+	});}
+	
 	function ZoomControl(){
 
 	
 		var doc = document;
 		if (($(doc).scrollTop() > 1240 || $(doc).scrollTop < 1340) && ($(doc).scrollTop() < 1740 || $(doc).scrollTop() > 1840)){
 			if (!zoomedIn){
-				smoothZoom(venueMap, 18, venueMap.getZoom(), true);
-				zoomedIn = true;
-				dropandPan();
+				// ActivateMap().catch(function(error){console.log("Oh no, ", error);});
+				ActivateMap().then(function(){console.log("It worked");}, function(){ console.log("It did not work");});
+			zoomedIn = true;
+
 			}
 		}
 		else{
