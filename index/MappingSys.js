@@ -5,17 +5,20 @@
  var windows = [];
  var Contents = ['Tara\'s Deli' + '\n' + '530 Valley Street', 'Maplewood Train Station'];
  var i;
-function init(){
-		
+
+
+ function init(){
+
+	
 	var mapOptions = {
 		center: new google.maps.LatLng(AreasOfInterest[0]),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		zoom: 13
 	};
-
+	
 	var venueMap = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-
+	
 	function newWindow(ContentString){
 		windows.push(new google.maps.InfoWindow({
 			content: ContentString,
@@ -24,11 +27,11 @@ function init(){
 	}
 
 	function addMarker(position){
-			markers.push(new google.maps.Marker({
-				position: new google.maps.LatLng(position),
-				animation: google.maps.Animation.DROP,
-				map: venueMap
-			}));
+		markers.push(new google.maps.Marker({
+			position: new google.maps.LatLng(position),
+			animation: google.maps.Animation.DROP,
+			map: venueMap
+		}));
 	}
 	// if venueMap.data.contains(markers[0]);
 	var clearMarkers = function(){
@@ -37,17 +40,20 @@ function init(){
 		}
 		markers = [];
 	};
-
+	
 	var closeWindows = function(){
 		for (var s=0; s < windows.length; s++){
 			windows[s].close();
 		}
 		windows = [];
 	};
-
+	
 	function dropandPan(){
+		alert("here");
 		clearMarkers();
+   
 
+		
 		for (i = 0; i < AreasOfInterest.length; i++){
 			if (venueMap.data.contains(markers[i])){
 				console.log("nextStep");
@@ -56,11 +62,6 @@ function init(){
 				console.log("hey Chode");
 				setTimeout(windows[i].close(venueMap, markers[i]), 3000);
 			}
-			// else if (i == 2){
-			// 	console.log("Rerun!!");
-			// 	setTimeout(closeWindows(), 3000);
-			// 	console.log("closed");
-			// }
 			else if (i == 1){
 				setTimeout(addMarker(AreasOfInterest[i]), 5000); // √
 				newWindow(Contents[i]);
@@ -79,7 +80,7 @@ function init(){
 			}
 		}
 	}
-
+	
 
 	/////////////// 
 	/////////////// 
@@ -89,60 +90,68 @@ function init(){
 	//Model View Controller State Change https://developers.google.com/maps/documentation/javascript/events
 	var zoomedIn = false;
 
-	function smoothZoom(map, level, cnt, mode){
+	function smoothZoom(map, level, count, mode, cb){
 		if (mode === true){
-			if (cnt >= level){
+			if (count > level){
 				return;
-			}
-			else {
+			} else {
 				var z = google.maps.event.addListener(venueMap, 'zoom_changed', function(event){
 					google.maps.event.removeListener(z);
-					smoothZoom(map, level, cnt + 1, true);
+					smoothZoom(map, level, count + 1, true);
 				});
-				setTimeout(function(){venueMap.setZoom(cnt);}, 800);
+				setTimeout(function(){
+					if (typeof(cb) === "function"){ // SHIT IS FUCKIN CREEPY BRO...MADD WEIRD
+					cb();
+					}
+					else{
+					console.log("not a function");
+					}
+					venueMap.setZoom(count);
+				}, 800);
 			}
-		}
-		else {
-			if (cnt <= level){
+		} else {
+			if (count < level){
 				return;
-			}
-			else {
+			} else {
 				var v = google.maps.event.addListener(venueMap, 'zoom_changed', function(event){
 					google.maps.event.removeListener(v);
-					smoothZoom(map, level, cnt - 1, false);
+					smoothZoom(map, level, count - 1, false);
 				});
-				setTimeout(function(){venueMap.setZoom(cnt);}, 80);
+				setTimeout(function(){venueMap.setZoom(count);}, 80);
 			}
 		}
 	}
-	
-	//Figure this shit out ---> do not understand what is wrong
-	function ActivateMap(){new Promise(function(fulfill, reject){
-		smoothZoom(venueMap, 18, venueMap.getZoom(), true).done(function(){setTimeout(dropandPan(), 3500);});
-	});}
-	
+	 
+	function ActivateMap(){
+			smoothZoom(venueMap, 18, venueMap.getZoom(), true, function(){
+				console.log("now running");
+				setTimeout(dropandPan(), 2000);
+				console.log("Vic Mensa");
+			});
+	}
+
 	function ZoomControl(){
 
-	
-		var doc = document;
-		if (($(doc).scrollTop() > 1240 || $(doc).scrollTop < 1340) && ($(doc).scrollTop() < 1740 || $(doc).scrollTop() > 1840)){
-			if (!zoomedIn){
-				// ActivateMap().catch(function(error){console.log("Oh no, ", error);});
-				ActivateMap().then(function(){console.log("It worked");}, function(){ console.log("It did not work");});
-			zoomedIn = true;
+			var doc = document;
 
+			if (($(doc).scrollTop() > 1240 || $(doc).scrollTop < 1340) && ($(doc).scrollTop() < 1740 || $(doc).scrollTop() > 1840)){
+				if (!zoomedIn){
+					ActivateMap();
+					zoomedIn = true;
+				}
 			}
-		}
-		else{
-			closeWindows();
-			smoothZoom(venueMap, 8, venueMap.getZoom(), false);
-			zoomedIn = false;
-		}
+			else{
+				closeWindows();
+				clearMarkers();
+				smoothZoom(venueMap, 8, venueMap.getZoom(), false);
+				zoomedIn = false;
+			}
 	}
 
 	document.addEventListener('scroll', ZoomControl, false);
-	}
-
+}
+	
+	
 
 function loadScript(){
 	var doc = document;
@@ -150,7 +159,6 @@ function loadScript(){
 	script.src = 'http://maps.googleapis.com/maps/api/js?sensor=false&callback=init';
 	doc.body.appendChild(script);
 }
-
 
 window.onload = loadScript;
 
