@@ -5,7 +5,6 @@ body {
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
-
 .ShowAround {
 	position: fixed;
 	top: 0;
@@ -17,7 +16,6 @@ body {
 	opacity: 0.9;
 	overflow-x: hidden;
 }
-
 #coverup {
 	position: relative;
 	top: 0;
@@ -26,7 +24,6 @@ body {
 	width: 1280px;
 	z-index: 2;
 }
-
 .ShowAround li:first-child {
 	position: relative;
 	display: inline-block;
@@ -36,7 +33,6 @@ body {
 	font-size: 15px;
 	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
 }
-
 .ShowAround li {
 	position: relative;
 	display: inline-block;
@@ -49,12 +45,10 @@ body {
 	text-align: center;
 	z-index: 4;
 }
-
 .ShowAround a:hover {
 	color: #ee932a;
 	text-decoration: none;
  }
-
 .ShowAround li:after {
 	content: '';
 	display: block;
@@ -65,14 +59,12 @@ body {
 	-webkit-transition: width .5s ease, background-color .5s ease; /* Chrome and Safari */
 	-moz-transition: width .5s ease, background-color .5s ease; /* FireFox */
 }
-
 .ShowAround li:hover:after {
 	top: 10px;
 	width: 100%;
 	background: #ee932a;
 	z-index: 4;
 }
-
 .ShowAround a {
 	text-decoration: none;
 	color: #ee932a;
@@ -88,7 +80,6 @@ body {
 	overflow-y: hidden;
 	z-index: 8;
 }
-
 .Intropage h1 {
 	position: absolute;
 	font-family: 'Economica';
@@ -102,11 +93,9 @@ body {
 	text-rendering: optimizeLegibility;
 	z-index: 9;
 } 
-
 .Intropage h1:hover {
 	color: black;
 }
-
 .Intropage p {
  	position: absolute;
  	font-family: "Economica";
@@ -119,11 +108,9 @@ body {
 	margin: 0 auto;
 	z-index: 9;
 }
-
 .Intropage p:hover {
  	color: #0496da;
 }
-
 .LearnMore {
 	position: relative;
 	top: 450px;
@@ -135,7 +122,6 @@ body {
 	z-index: 15;
 	margin: 0 auto;
 }
-
 .LearnMore:hover {
 	background-color: #242424;
 }
@@ -150,7 +136,6 @@ body {
 	z-index: 15;
 	text-decoration: none;
 }
-
 .LearnMore a:hover {
 	color: #ee932a;
 	text-decoration: none;
