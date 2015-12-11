@@ -1,4 +1,3 @@
-
 body {
 	width: 1280px;
 	height: 100%;
@@ -23,7 +22,6 @@ body {
 	opacity: 0.9;
 	overflow-x: hidden;
 }
-
 .ShowAround li:first-child {
 	position: relative;
 	display: inline-block;
@@ -33,7 +31,6 @@ body {
 	font-size: 15px;
 	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
 }
-
 .ShowAround li {
 	position: relative;
 	display: inline-block;
@@ -50,7 +47,6 @@ body {
 	color: #ee932a;
 	text-decoration: none;
  }
-
 .ShowAround li:after {
 	content: '';
 	display: block;
@@ -61,20 +57,17 @@ body {
 	-webkit-transition: width .5s ease, background-color .5s ease; /* Chrome and Safari */
 	-moz-transition: width .5s ease, background-color .5s ease; /* FireFox */
 }
-
 .ShowAround li:hover:after {
 	top: 10px;
 	width: 100%;
 	background: #ee932a;
 	z-index: 4;
 }
-
 .ShowAround a {
 	text-decoration: none;
 	color: #ee932a;
 	z-index: 4;
 }
-
 #contact {
 	height: 650px;
 	width: 100%;
@@ -106,7 +99,6 @@ body {
 	position: relative;
 	z-index: 1;
 }
-
 #Bio {
 	overflow-x: hidden;
 	position: relative;
@@ -116,8 +108,6 @@ body {
 	background-color: black;
 	z-index: 5;
 }
-
-
 #Bio p {
 	color: #ee932a;
 	text-align: center;
@@ -130,7 +120,6 @@ body {
 	font-family: "DIN Condensed", "Bold", "OpenType TrueType";
 	z-index: 10;
 }
-
 .Traffic {
 	min-height: 100%;
 	width: 100%;
