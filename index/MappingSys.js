@@ -1,22 +1,20 @@
  // var Promise = require('promise');
 
- var AreasOfInterest =[{lat: 40.732755, lng: -74.270386}, {lat:40.730535, lng:-74.276163}];
+ var AreasOfInterest =[{lat: 40.732755, lng: -74.270386}, {lat: 40.730535, lng: -74.276163}];
  var markers = [];
  var windows = [];
- var Contents = ['Tara\'s Deli' + '\n' + '530 Valley Street', 'Maplewood Train Station'];
+ var Contents = ['Tara\'s Deli' + '<br>' + '530 Valley Street' + '<br>' + 'Maplewood, NJ', '6 min. walk' + '<br>' + 'Maplewood Train Station', ];
  var i;
 
 
  function init(){
 
 	
-	var mapOptions = {
+	var venueMap = new google.maps.Map(document.getElementById('map'), {
 		center: new google.maps.LatLng(AreasOfInterest[0]),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		zoom: 13
-	};
-	
-	var venueMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+		zoom: 8
+	});
 
 	
 	function newWindow(ContentString){
@@ -33,7 +31,7 @@
 			map: venueMap
 		}));
 	}
-	// if venueMap.data.contains(markers[0]);
+
 	var clearMarkers = function(){
 		for(i = 0; i < markers.length; i++){
 			markers[i].setMap(null);
@@ -45,38 +43,25 @@
 		for (var s=0; s < windows.length; s++){
 			windows[s].close();
 		}
-		windows = [];
 	};
 	
 	function dropandPan(){
-		alert("here");
-		clearMarkers();
-   
 
+		clearMarkers();
 		
 		for (i = 0; i < AreasOfInterest.length; i++){
-			if (venueMap.data.contains(markers[i])){
-				console.log("nextStep");
-				venueMap.panTo(AreasOfInterest[i].lat, AreasOfInterest[i].lng); // √
-				windows[i].open(venueMap, markers[i]);
-				console.log("hey Chode");
-				setTimeout(windows[i].close(venueMap, markers[i]), 3000);
+			
+			if (i == 1){
+				setTimeout(function(){venueMap.panTo(AreasOfInterest[1]);}, 6000); // √
+				setTimeout(function(){
+					addMarker(AreasOfInterest[1]);
+					newWindow(Contents[1]); // √
+					windows[1].open(venueMap, markers[1]);}, 7000);
 			}
-			else if (i == 1){
-				setTimeout(addMarker(AreasOfInterest[i]), 5000); // √
-				newWindow(Contents[i]);
-				console.log("made");
-				setTimeout(venueMap.panTo(AreasOfInterest[i]), 3500); // √
-				console.log("PanOver");
-				windows[i].open(venueMap, markers[i]);
-				console.log("NewWindow");
-			}
-			else{
-				addMarker(AreasOfInterest[i]); // √
-				newWindow(Contents[i]);
-				console.log("made");
-				windows[i].open(venueMap, markers[i]);
-				console.log("NewWindow");
+			else {
+				addMarker(AreasOfInterest[0]); // √
+				newWindow(Contents[0]);
+				windows[0].open(venueMap, markers[0]);
 			}
 		}
 	}
@@ -95,16 +80,15 @@
 			if (count > level){
 				return;
 			} else {
+				var Zoomset = [];
 				var z = google.maps.event.addListener(venueMap, 'zoom_changed', function(event){
 					google.maps.event.removeListener(z);
-					smoothZoom(map, level, count + 1, true);
+					smoothZoom(map, level, count + 1, true,  cb);
 				});
+				Zoomset.push(count);
 				setTimeout(function(){
-					if (typeof(cb) === "function"){ // SHIT IS FUCKIN CREEPY BRO...MADD WEIRD
+					if (Zoomset.some(function(item){return (item == 15);})){
 					cb();
-					}
-					else{
-					console.log("not a function");
 					}
 					venueMap.setZoom(count);
 				}, 800);
@@ -118,16 +102,19 @@
 					smoothZoom(map, level, count - 1, false);
 				});
 				setTimeout(function(){venueMap.setZoom(count);}, 80);
+				i = 0;
 			}
 		}
 	}
 	 
-	function ActivateMap(){
-			smoothZoom(venueMap, 18, venueMap.getZoom(), true, function(){
+	var runCallback = function(){
 				console.log("now running");
 				setTimeout(dropandPan(), 2000);
-				console.log("Vic Mensa");
-			});
+				console.log("done Running");
+			};
+
+	function ActivateMap(){
+			smoothZoom(venueMap, 16, venueMap.getZoom(), true, runCallback);
 	}
 
 	function ZoomControl(){
@@ -143,7 +130,7 @@
 			else{
 				closeWindows();
 				clearMarkers();
-				smoothZoom(venueMap, 8, venueMap.getZoom(), false);
+				smoothZoom(venueMap, 8, venueMap.getZoom(), false, venueMap.setCenter(AreasOfInterest[0]));
 				zoomedIn = false;
 			}
 	}
