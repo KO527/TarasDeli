@@ -200,12 +200,12 @@ body {
 	font-family: 'Jura', sans-serif;
 	font-size: 40px;
 	font-weight: 600;
-	color: black;
+	color: white;
 }
 
 .happen { 
     position: relative;
-    color: black;				
+    color: white;				
     font-family: 'Jura', sans-serif;		
     bottom: 565px;				
     left: -500px;

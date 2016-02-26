@@ -1,3 +1,6 @@
+/* jshint -W099: false */
+/* jslint indent: false */
+
 (function(){
 var app = angular.module('TarasDeli', ['ngRoute', 'ngAnimate']);
 
@@ -34,7 +37,7 @@ app.controller('FadeInOut', ['$scope', '$timeout', '$interval', '$sce', function
 {
 	id: 3,
 	image: '/TarasPhotos/TarasNoTraffic.jpg',
-	time: "At <br/>4:00 AM...",
+	time: "At <br/>4:00 PM...",
 	Happenstance: "Deli Closes"
 }
 	];

@@ -1,3 +1,7 @@
+/* jshint -W099: false */
+/* jslint indent: false */
+
+
 var express = require("express");
 var path = require('path');
 var compress = require('compression');

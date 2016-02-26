@@ -1,4 +1,5 @@
- // var Promise = require('promise');
+/* jshint -W099: false */
+/* jslint indent: false */
 
  var AreasOfInterest =[{lat: 40.732755, lng: -74.270386}, {lat: 40.730535, lng: -74.276163}];
  var markers = [];
